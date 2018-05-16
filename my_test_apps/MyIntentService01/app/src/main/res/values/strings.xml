@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyIntentService01</string>
+    <string name="local_service_started">local_started</string>
+    <string name="local_service_stopped">local_stopped</string>
+    <string name="local_service_label">local_label</string>
+    <string name="local_service_connected">local_connected</string>
+    <string name="local_service_disconnected">local_disconnected</string>
+    <string name="remote_service_started">remote_started</string>
+    <string name="remote_service_stopped">remote_stopped</string>
+</resources>
