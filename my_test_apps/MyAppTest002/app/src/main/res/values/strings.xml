@@ -20,4 +20,8 @@
     <string name="id_here">아이디</string>
     <string name="id_duplicate_check">중복확인</string>
     <string name="pwd_here">비밀번호</string>
+    <string name="pwd_again">비밀번호 확인</string>
+    <string name="login_icon">로그인</string>
+    <string name="signup_menu">가입하기</string>
+    <string name="mypage_menu">마이페이지</string>
 </resources>
