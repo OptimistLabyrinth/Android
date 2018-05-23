@@ -7,15 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackgroundDefault"
-    tools:context=".WelcomePageActivity"
-    >
+    tools:context=".WelcomePageActivity" >
 
     <ImageButton
-        android:id="@+id/mainactivity_imageview"
+        android:id="@+id/imageview_welcome_page"
         android:layout_width="wrap_content"
         android:layout_height="171dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="64dp"
         android:background="@color/colorBackgroundDefault"
         android:src="@drawable/boo_mainpage"
@@ -27,22 +26,22 @@
         android:id="@+id/mainactivity_welcometo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="40dp"
         android:text="@string/mainActivity_WelcomeTo"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainactivity_imageview" />
+        app:layout_constraintTop_toBottomOf="@+id/imageview_welcome_page" />
 
     <TextView
         android:id="@+id/tv_additional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginStart="@dimen/margin_standard"
         android:text="(click anywhere)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

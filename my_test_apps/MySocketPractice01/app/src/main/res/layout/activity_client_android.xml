@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30sp"
+    tools:context=".ClientAndroidActivity" >
+
+    <LinearLayout
+        android:id="@+id/layout_hold_everything"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/layout_balance_value"
+            android:padding="30sp"
+            android:layout_margin="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/balance_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/how_much_left" />
+
+            <TextView
+                android:id="@+id/balance_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="$" />
+
+            <TextView
+                android:id="@+id/balance_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="40sp"
+            android:paddingLeft="40sp"
+            android:paddingEnd="40sp"
+            android:paddingRight="40sp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal" >
+
+            <Button
+                android:id="@+id/btn_deposit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:textSize="20sp"
+                android:text="desposit $10" />
+
+            <Button
+                android:id="@+id/btn_withdraw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:textSize="18sp"
+                android:text="withdraw $10" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
