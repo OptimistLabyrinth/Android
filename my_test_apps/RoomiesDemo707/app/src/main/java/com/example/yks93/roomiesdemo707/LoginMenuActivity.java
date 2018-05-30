@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.yks93.roomiesdemo707.signup_actions.SignupOneActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,6 +21,8 @@ public class LoginMenuActivity extends AppCompatActivity{
     Button loginB = null;
     @BindView(R.id.btn_signup)
     Button signupB = null;
+
+    private final String TAG = "LoginMenuActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

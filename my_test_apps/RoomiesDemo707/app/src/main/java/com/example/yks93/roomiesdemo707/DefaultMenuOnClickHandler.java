@@ -11,6 +11,8 @@ public class DefaultMenuOnClickHandler extends AppCompatActivity {
 
     MenuInflater inflater = null;
 
+    private final String TAG = "DefaultMenuOnClickHandl";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

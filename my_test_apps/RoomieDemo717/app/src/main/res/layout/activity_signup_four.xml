@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_standard"
+    android:layout_margin="@dimen/margin_standard"
+    tools:context=".signup_actions.SignupFourActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_age"/>
+
+                <NumberPicker
+                    android:id="@+id/numberpicker_age_opposite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_grade"/>
+
+                <NumberPicker
+                    android:id="@+id/numberpicker_grade_opposite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_personality"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <CheckBox
+                        android:id="@+id/checkbox_01_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check1"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_02_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check2"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_03_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check3"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_04_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check4"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_05_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check5"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_06_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check6"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_07_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check7"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_08_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check8"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_09_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check9"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_10_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check10"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_11_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check11"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_12_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/personality_check12"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_cleanness"/>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_cleanness_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbtn_cleanness_pick1_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanness_pick1"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_cleanness_pick2_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanness_pick2"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_cleanness_pick3_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanness_pick3"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_cleanness_pick4_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanness_pick4"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_cleanness_pick5_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanness_pick5"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_nightfood"/>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_nightfood_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <RadioButton
+                        android:id="@+id/rbtn_nightfood_pick1_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nightfood_pick1"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_nightfood_pick2_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nightfood_pick2"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_nightfood_pick3_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nightfood_pick3"/>
+
+                    <RadioButton
+                        android:id="@+id/rbtn_nightfood_pick4_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nightfood_pick4"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_outside_activity"/>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_activity_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/rbtn_activity_pick1_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_activity_pick1" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_activity_pick2_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_activity_pick2" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_activity_pick3_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_activity_pick3" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_activity_pick4_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_activity_pick4" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_activity_pick5_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_activity_pick5" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_max_alcohol" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_max_alcohol_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/rbtn_maxalcohol_pick1_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_max_alcohol_pick1" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_maxalcohol_pick2_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_max_alcohol_pick2" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_maxalcohol_pick3_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_max_alcohol_pick3" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_maxalcohol_pick4_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_max_alcohol_pick4" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_maxalcohol_pick5_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/outside_max_alcohol_pick5" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_alcoho_frequent" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_alcohol_frequency_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick1_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick1" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick2_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick2" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick3_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick3" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick4_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick4" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick5_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick5" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick6_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick6" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_alcoholfrequent_pick7_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alcohol_frequent_pick7" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_standard"
+                android:paddingBottom="@dimen/padding_standard"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="40sp"
+                    android:textSize="20sp"
+                    android:text="@string/insert_opposite_smoking" />
+
+                <RadioGroup
+                    android:id="@+id/radiogroup_smoking_opposite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2" >
+
+                    <RadioButton
+                        android:id="@+id/rbtn_smoke_yes_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/yes_smoking" />
+
+                    <RadioButton
+                        android:id="@+id/rbtn_smoke_no_opposite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/no_smoking" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_standard"
+            android:paddingBottom="@dimen/padding_standard"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="40sp"
+                android:textSize="20sp"
+                android:text="@string/insert_opposite_friend_coming" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup_friend_coming_opposite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <RadioButton
+                    android:id="@+id/rbtn_friend_coming_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/friend_coming_yes" />
+
+                <RadioButton
+                    android:id="@+id/rbtn_friend_coming_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/friend_coming_no" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24sp"
+                android:paddingBottom="24sp"
+                android:orientation="vertical" >
+
+            </LinearLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_standard"
+                android:layout_margin="@dimen/margin_standard" >
+
+                <Button
+                    android:id="@+id/btn_signup_finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    android:textSize="20sp"
+                    android:text="@string/finish_signup_process" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

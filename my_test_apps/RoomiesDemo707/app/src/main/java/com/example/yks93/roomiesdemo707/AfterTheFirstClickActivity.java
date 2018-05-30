@@ -4,18 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
-import butterknife.BindView;
+import com.example.yks93.roomiesdemo707.signup_actions.SignupOneActivity;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AfterTheFirstClickActivity extends AppCompatActivity {
+
+    private final String TAG = "AfterTheFirstClickActiv";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,32 +26,6 @@ public class AfterTheFirstClickActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,6 +59,36 @@ public class AfterTheFirstClickActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
     }
 
     @OnClick({R.id.searchRoommateImage, R.id.searchRoommateText})
