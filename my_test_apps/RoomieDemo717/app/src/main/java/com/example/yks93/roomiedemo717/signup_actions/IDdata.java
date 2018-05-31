@@ -4,6 +4,9 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
+/*
+ *  Depreciated
+ */
 public class IDdata {
 
     private final String TAG = "IDdata";

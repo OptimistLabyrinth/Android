@@ -5,15 +5,20 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
+/*
+ *  Depreciated
+ */
 public interface SendSignupOneService {
 
-    @FormUrlEncoded
-    @POST("/insertSignupOne")
+
+    @GET("/insertSignup")
     Call<List<SignupOneData>> sendSignupOneData(
-            @Field("ID") String id,
-            @Field("PWD") String pwd
+            @Query(value = "ID") String id,
+            @Query(value = "PWD") String pwd
     );
 
 }

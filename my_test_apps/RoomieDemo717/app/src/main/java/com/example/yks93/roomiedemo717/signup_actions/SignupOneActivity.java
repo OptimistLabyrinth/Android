@@ -1,6 +1,7 @@
 package com.example.yks93.roomiedemo717.signup_actions;
 
 import android.content.Intent;
+import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.yks93.roomiedemo717.R;
 import com.example.yks93.roomiedemo717.retrofit_package.RetrofitClientInstance;
+import com.example.yks93.roomiedemo717.static_storage.StaticVarMethods;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupOneActivity extends AppCompatActivity implements TextWatcher {
+public class SignupOneActivity extends AppCompatActivity  {
 
     @BindView(R.id.edittext_id_input_from_user)
     EditText edittext_id_input_from_user;
@@ -60,6 +62,8 @@ public class SignupOneActivity extends AppCompatActivity implements TextWatcher 
 
         getAllUserIDsFromDatabase();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,6 +116,7 @@ public class SignupOneActivity extends AppCompatActivity implements TextWatcher 
         Log.d(TAG, "getAllUserIDsFromDatabase:  passing parameter...");
 
         call.enqueue(new Callback<List<IDdata>>() {
+
             @Override
             public void onResponse(Call<List<IDdata>> call, Response<List<IDdata>> response) {
                 Log.d(TAG, "onResponse: ");
@@ -156,47 +161,21 @@ public class SignupOneActivity extends AppCompatActivity implements TextWatcher 
                 openPWDInappropriate();
             }
             else {
-                String id_value = edittext_id_input_from_user.getText().toString();
-                String pwd_value = edittext_pwd_input_from_user.getText().toString();
-                int code = 0;
-
-                SendSignupOneService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupOneService.class);
-                Call<List<SignupOneData>> call = service.sendSignupOneData(
-                        id_value,
-                        pwd_value
-                );
-
-                call.enqueue(new Callback<List<SignupOneData>>() {
-                    @Override
-                    public void onResponse(Call<List<SignupOneData>> call, Response<List<SignupOneData>> response) {
-                        Log.d(TAG, "onResponse: ");
-                        int code = response.code();
-
-                        if (code != 200)
-                            this.onFailure(call, new Throwable());
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<SignupOneData>> call, Throwable t) {
-                        Log.d(TAG, "onFailure: RETRYING");
-                        call.clone().enqueue(this);
-                    }
-                });
-
                 Intent intent = new Intent(this, SignupTwoActivity.class);
+
+                intent.putExtra(StaticVarMethods.USER_ID,
+                        edittext_id_input_from_user.getText().toString());
+                intent.putExtra(StaticVarMethods.USER_PWD,
+                        edittext_pwd_input_from_user.getText().toString());
+
                 startActivity(intent);
 
             }
         }
         else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-            tvTemp1.setText(R.string.cannot_move_to_signup_two_message);
-            tvTemp2.setText(R.string.OK_button);
-
-            builder.setMessage(tvTemp1.getText().toString())
-                    .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                    .setMessage(R.string.cannot_move_to_signup_two_message)
+                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
@@ -205,40 +184,25 @@ public class SignupOneActivity extends AppCompatActivity implements TextWatcher 
     }
 
     private void openIDReplicatedDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-        tvTemp1.setText(R.string.id_replicated_message);
-        tvTemp2.setText(R.string.OK_button);
-
-        builder.setMessage(tvTemp1.getText().toString())
-                .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.id_replicated_message)
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
 
     private void openIDUsableDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-        tvTemp1.setText(R.string.id_usable_message);
-        tvTemp2.setText(R.string.OK_button);
-
-        builder.setMessage(tvTemp1.getText().toString())
-                .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.id_usable_message)
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
 
     private void requestIDReplicateCheckDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-        tvTemp1.setText(R.string.id_haveto_duplicate_check_message);
-        tvTemp2.setText(R.string.OK_button);
-
-        builder.setMessage(tvTemp1.getText().toString())
-                .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.id_haveto_duplicate_check_message)
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -252,30 +216,68 @@ public class SignupOneActivity extends AppCompatActivity implements TextWatcher 
     }
 
     private void openPWDInappropriate() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-        tvTemp1.setText(R.string.pwd_inappropriate_message);
-        tvTemp2.setText(R.string.OK_button);
-
-        builder.setMessage(tvTemp1.getText().toString())
-                .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setMessage(R.string.pwd_inappropriate_message)
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
 
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-
-    }
 }
+
+
+//    @BindView(R.id.tv_result_id)
+//    TextView tv_id;
+//    @BindView(R.id.tv_result_pwd)
+//    TextView tv_pwd;
+//    String id_result = "";
+//    String pwd_result = "";
+
+
+
+//                String id_value = edittext_id_input_from_user.getText().toString();
+//                String pwd_value = edittext_pwd_input_from_user.getText().toString();
+////                int id_value = 7;
+////                int pwd_value = 17;
+//
+//
+//
+//                int code = 0;
+//
+//                SendSignupOneService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupOneService.class);
+//                Call<List<SignupOneData>> call = service.sendSignupOneData(
+//                        id_value,
+//                        pwd_value
+//                );
+//
+//                call.enqueue(new Callback<List<SignupOneData>>() {
+//                    @Override
+//                    public void onResponse(Call<List<SignupOneData>> call, Response<List<SignupOneData>> response) {
+//                        Log.d(TAG, "onResponse: ");
+//                        int code = response.code();
+//                        Log.d(TAG, "code: " + code);
+//
+////                        id_result = response.body().get(0).getId();
+////                        pwd_result = response.body().get(0).getPwd();
+////
+////                        tv_id.setText(id_result);
+////                        tv_pwd.setText(pwd_result);
+//
+//                        if (code != 200) {
+//                            call.cancel();
+//                            Log.d(TAG, "onResponse: RETRYING");
+////                            this.onFailure(call, new Throwable());
+//
+//                        }
+//                        else {
+//                            Log.d(TAG, "onResponse: SUCCESS SUCCESS SUCCESS SUCCESS SUCCESS ");
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<List<SignupOneData>> call, Throwable t) {
+//                        Log.d(TAG, "onFailure: RETRYING");
+////                        call.clone().enqueue(this);
+//                    }
+//                });

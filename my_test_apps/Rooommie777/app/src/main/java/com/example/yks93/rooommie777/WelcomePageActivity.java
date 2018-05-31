@@ -1,32 +1,26 @@
-package com.example.yks93.roomiedemo717;
+package com.example.yks93.rooommie777;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 
-public class SearchRoommateActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class WelcomePageActivity extends AppCompatActivity {
 
 
-    private final String TAG = "SearchRoommateActivity";
+    private final String TAG = "WelcomePageActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_welcome_page);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d(TAG, "onCreateOptionsMenu: ");
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d(TAG, "onOptionsItemSelected: ");
-        return super.onOptionsItemSelected(item);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -59,6 +53,10 @@ public class SearchRoommateActivity extends AppCompatActivity {
         Log.d(TAG, "onDestroy: ");
     }
 
-
+    @OnClick({R.id.activity_welcome_page, R.id.imageview_welcome_page})
+    void welcomePageClicked(View v) {
+        Intent intent = new Intent(this, AfterTheFirstClickActivity.class);
+        startActivity(intent);
+    }
 
 }

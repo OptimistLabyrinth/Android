@@ -12,6 +12,10 @@ import com.example.yks93.roomiedemo717.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
+/*
+ *  Depreciated
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private final String TAG = "RecyclerViewAdapter";

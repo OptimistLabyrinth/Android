@@ -9,7 +9,6 @@ import retrofit2.http.Streaming;
 public interface ListAllUserIDService {
 
     @GET("/ListAllUserIDs")
-    @Streaming
     Call<List<IDdata>> listAllUserIDs();
 
 }

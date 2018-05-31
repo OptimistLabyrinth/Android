@@ -2,17 +2,20 @@ package com.example.yks93.roomiedemo717.signup_actions;
 
 import com.google.gson.annotations.SerializedName;
 
+/*
+ *  Depreciated
+ */
 public class SignupTwoData {
 
-    @SerializedName("Name")
+    @SerializedName("NAME")
     private String name;
-    @SerializedName("Phone")
+    @SerializedName("PHONE")
     private String phone;
-    @SerializedName("Email")
+    @SerializedName("EMAIL")
     private String email;
-    @SerializedName("Stud_ID")
+    @SerializedName("STUD_ID")
     private String stud_id;
-    @SerializedName("Major")
+    @SerializedName("MAJOR")
     private String major;
 
     public String getName() {

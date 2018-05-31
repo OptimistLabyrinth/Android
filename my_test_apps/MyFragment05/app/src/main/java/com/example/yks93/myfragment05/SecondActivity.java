@@ -15,23 +15,30 @@ import android.widget.LinearLayout;
 
 import com.example.yks93.myfragment05.fragments.MainFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class SecondActivity extends AppCompatActivity {
 
-    private final String TAG = "SecondActivity";
-
-
+    @BindView(R.id.button_second)
     Button button;
+    @BindView(R.id.layout_root)
     ConstraintLayout layout_root;
+    @BindView(R.id.linearLayout_second_activity)
     LinearLayout linearLayout_child;
 
     FragmentManager fragmentManager;
+
+    private final String TAG = "SecondActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        ButterKnife.bind(this);
 
-        layout_root = (ConstraintLayout) findViewById(R.id.layout_root);
+//        layout_root = (ConstraintLayout) findViewById(R.id.layout_root);
 
     }
 
@@ -40,14 +47,15 @@ public class SecondActivity extends AppCompatActivity {
         super.onResume();
         fragmentManager = getSupportFragmentManager();
 
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_second_linear_layout, layout_root, true);
+//        View view = LayoutInflater.from(this).inflate(R.layout.activity_second_linear_layout, layout_root, true);
 
-        button = (Button) findViewById(R.id.button_second);
-        button.setOnClickListener(v -> onButtonClicked());
+//        button = (Button) findViewById(R.id.button_second);
+//        button.setOnClickListener(v -> onButtonClicked());
 
-        linearLayout_child = (LinearLayout) findViewById(R.id.linearLayout_second_activity);
+//        linearLayout_child = (LinearLayout) findViewById(R.id.linearLayout_second_activity);
     }
 
+    @OnClick(R.id.button_second)
     void onButtonClicked() {
         Fragment fragment = new MainFragment();
 
@@ -69,7 +77,7 @@ public class SecondActivity extends AppCompatActivity {
                 .addToBackStack("mainFragment");
         transaction.commit();
         linearLayout_child.setVisibility(View.GONE);
-
+//        linearLayout_child.setAlpha(0.5f);
 
         Log.d(TAG, "BackStackEntryCount(): " + fragmentManager.getBackStackEntryCount());
 
@@ -79,5 +87,6 @@ public class SecondActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         linearLayout_child.setVisibility(View.VISIBLE);
+//        linearLayout_child.setAlpha(1f);
     }
 }

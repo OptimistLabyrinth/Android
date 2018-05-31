@@ -21,8 +21,6 @@ public class StringAdapter extends RecyclerView.Adapter<StringAdapter.StringView
         this.dataList = dataList;
     }
 
-    
-
     @NonNull
     @Override
     public StringViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

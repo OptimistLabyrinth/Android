@@ -1,11 +1,17 @@
 package com.example.yks93.roomiedemo717.signup_actions;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+ *  Depreciated
+ */
 public class SignupOneData {
 
+    @Expose
     @SerializedName("ID")
     private String id;
+    @Expose
     @SerializedName("PWD")
     private String pwd;
 

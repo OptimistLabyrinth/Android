@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 
 import com.example.yks93.roomiedemo717.R;
 import com.example.yks93.roomiedemo717.retrofit_package.RetrofitClientInstance;
+import com.example.yks93.roomiedemo717.static_storage.StaticVarMethods;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -129,48 +130,6 @@ public class SignupThreeActivity extends AppCompatActivity {
     void onMovetoSignupFourButtonClicked() {
         Log.d(TAG, "onMovetoSignupFourButtonClicked: ");
 
-        int code = 0;
-
-
-
-        SendSignupThreeService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupThreeService.class);
-        Call<List<SignupThreeData>> call = service.sendSignupThreeData(
-                ((RadioButton) radioGroup_gender.getChildAt(radioGroup_gender.indexOfChild(
-                        radioGroup_gender.findViewById(radioGroup_gender.getCheckedRadioButtonId())))).getText().toString(),
-                String.valueOf(numberPicker_age.getValue()),
-                String.valueOf(numberPicker_grade.getValue()),
-                checkedPersonalities,
-                ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
-                        radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_nightfood.getChildAt(radiogroup_nightfood.indexOfChild(
-                        radiogroup_nightfood.findViewById(radiogroup_nightfood.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
-                        radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
-                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
-                        radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
-                        radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString()
-        );
-
-        call.enqueue(new Callback<List<SignupThreeData>>() {
-            @Override
-            public void onResponse(Call<List<SignupThreeData>> call, Response<List<SignupThreeData>> response) {
-                Log.d(TAG, "onResponse: ");
-                int code = response.code();
-
-                if (code != 200)
-                    this.onFailure(call, new Throwable());
-            }
-
-            @Override
-            public void onFailure(Call<List<SignupThreeData>> call, Throwable t) {
-                Log.d(TAG, "onFailure: RETRYING");
-                call.clone().enqueue(this);
-            }
-        });
-
         startIntentSignupFourActivity();
 
     }
@@ -200,8 +159,120 @@ public class SignupThreeActivity extends AppCompatActivity {
         Log.d(TAG, "startIntentSignupFourActivity: ");
 
         Intent intent = new Intent(this, SignupFourActivity.class);
+
+        inputPassingValues(intent);
+
         startActivity(intent);
     }
 
+    private void inputPassingValues(Intent intent) {
+        intent.putExtra(StaticVarMethods.mGENDER,
+                ((RadioButton) radioGroup_gender.getChildAt(radioGroup_gender.indexOfChild(
+                        radioGroup_gender.findViewById(radioGroup_gender.getCheckedRadioButtonId())))).getText().toString());
+        intent.putExtra(StaticVarMethods.mAGE, String.valueOf(numberPicker_age.getValue()));
+        intent.putExtra(StaticVarMethods.mGRADE, String.valueOf(numberPicker_grade.getValue()));
+        intent.putExtra(StaticVarMethods.mCLEAN,
+                ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
+                        radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString());
+        intent.putExtra(StaticVarMethods.mYASIK,
+                ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
+                        radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString());
+
+        Bundle personalityBundle = new Bundle();
+        int i = 0;
+        int list_length = checkedPersonalities.size();
+        while (i < list_length) {
+            personalityBundle.putString(String.valueOf(i), checkedPersonalities.get(i));
+            ++i;
+        }
+        personalityBundle.putInt(StaticVarMethods.mCharacterListLength, list_length);
+
+        intent.putExtra(StaticVarMethods.mCHARACTER, personalityBundle);
+        intent.putExtra(StaticVarMethods.mACTIVITY,
+                ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
+                        radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString());
+        intent.putExtra(StaticVarMethods.mFREQ_DRINK,
+                ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
+                        radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString());
+        intent.putExtra(StaticVarMethods.mDRINK,
+                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
+                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString());
+        intent.putExtra(StaticVarMethods.mSMOKE,
+                ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
+                        radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString());
+    }
+
+//    private int myGenderValueConversion() {
+//
+//    }
+//
+//    private int myCleanValueConversion() {
+//
+//    }
+//
+//    private int myYasikValueConversion() {
+//
+//    }
+//
+//    private int myCharacterConversion() {
+//
+//        traverseAndCompare(" ");
+//
+//
+//    }
+//
+//    private int traverseAndCompare(String s) {
+//
+//    }
+//
+//    private int myOutsideActivityConversion() {
+//
+//    }
+//
+//    private int myFreqDrinkConversion() {
+//
+//    }
+//
+//    private int mySmokeConversion() {
+//
+//    }
 
 }
+
+//        SendSignupThreeService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupThreeService.class);
+//        Call<List<SignupThreeData>> call = service.sendSignupThreeData(
+//                ((RadioButton) radioGroup_gender.getChildAt(radioGroup_gender.indexOfChild(
+//                        radioGroup_gender.findViewById(radioGroup_gender.getCheckedRadioButtonId())))).getText().toString(),
+//                String.valueOf(numberPicker_age.getValue()),
+//                String.valueOf(numberPicker_grade.getValue()),
+//                checkedPersonalities,
+//                ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
+//                        radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_nightfood.getChildAt(radiogroup_nightfood.indexOfChild(
+//                        radiogroup_nightfood.findViewById(radiogroup_nightfood.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
+//                        radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
+//                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
+//                        radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
+//                        radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString()
+//        );
+//
+//        call.enqueue(new Callback<List<SignupThreeData>>() {
+//            @Override
+//            public void onResponse(Call<List<SignupThreeData>> call, Response<List<SignupThreeData>> response) {
+//                Log.d(TAG, "onResponse: ");
+//                int code = response.code();
+//
+//                if (code != 200)
+//                    this.onFailure(call, new Throwable());
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<SignupThreeData>> call, Throwable t) {
+//                Log.d(TAG, "onFailure: RETRYING");
+//                call.clone().enqueue(this);
+//            }
+//        });

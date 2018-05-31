@@ -9,10 +9,29 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.yks93.roomiedemo717.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoadingWaitingFragment extends Fragment {
 
-    private final String TAG = "activity_loading_waitin";
+    @BindView(R.id.layout_loading_waiting)
+    LinearLayout linearLayout;
+    @BindView(R.id.progressBar_loading_waiting)
+    ProgressBar progressBar;
+    @BindView(R.id.tv_loading_wainting_1)
+    TextView tv1;
+    @BindView(R.id.tv_loading_wainting_2)
+    TextView tv2;
+
+    private final String TAG = "LoadingWaitingFragment";
 
     @Override
     public void onAttach(Context context) {
@@ -30,15 +49,15 @@ public class LoadingWaitingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-
-
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_loading_waiting, container, true);
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onViewCreated: ");
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
     }
 
     @Override
@@ -89,6 +108,10 @@ public class LoadingWaitingFragment extends Fragment {
         super.onDetach();
     }
 
-
+    @OnClick({R.id.layout_loading_waiting, R.id.progressBar_loading_waiting,
+            R.id.tv_loading_wainting_1, R.id.tv_loading_wainting_2})
+    void onClickAnywhere() {
+        Toast.makeText(getActivity(), R.string.plz_wait, Toast.LENGTH_SHORT).show();
+    }
 
 }

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MySharedPreferences01</string>
+    <string name="app_label">Main Page - click to continue</string>
+</resources>

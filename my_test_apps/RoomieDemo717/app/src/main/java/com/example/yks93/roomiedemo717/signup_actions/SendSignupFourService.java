@@ -5,23 +5,26 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
+/*
+ *  Depreciated
+ */
 public interface SendSignupFourService {
 
-    @FormUrlEncoded
-    @POST("/insertSignupFour")
+    @GET("/insertSignupFour")
     Call<List<SignupFourData>> sendSignupFourData(
-            @Field("age") String age,
-            @Field("grade") String grade,
-            @Field("personality") List<String> personality,
-            @Field("cleanness") String cleanness,
-            @Field("nightfood") String nightfood,
-            @Field("outsideActivity") String outsideActivity,
-            @Field("maxAlcohol") String maxAlcohol,
-            @Field("alcoholFreq") String alcoholFrequency,
-            @Field("smoking") String smoking,
-            @Field("friendComing") String friendComing
+            @Query("OP_AGE") String age,
+            @Query("OP_GRADE") String grade,
+            @Query("OP_CLEAN") String clean,
+            @Query("OP_YASIK") String yasik,
+            @Query("OP_OUTSIDE_ACTIVITY") String outside_activity,
+            @Query("OP_DRINK") String drink,
+            @Query("OP_FREQ_DRINK") String freq_drink,
+            @Query("OP_SMOKE") String smoke,
+            @Query("AGREE_WITH") String agree_with
     );
 
 }

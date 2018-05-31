@@ -7,10 +7,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.yks93.roomiedemo717.R;
 import com.example.yks93.roomiedemo717.retrofit_package.RetrofitClientInstance;
+import com.example.yks93.roomiedemo717.static_storage.StaticVarMethods;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +28,8 @@ import retrofit2.Response;
 
 public class SignupTwoActivity extends AppCompatActivity{
 
+    @BindView(R.id.radiogroup_gender_signup_two)
+    RadioGroup radioGroup_gender;
     @BindView(R.id.edittext_user_name)
     EditText edittext_user_name;
     @BindView(R.id.edittext_user_phone)
@@ -83,45 +88,44 @@ public class SignupTwoActivity extends AppCompatActivity{
         if (!ifNoneEmptyString()) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            TextView tvTemp1 = new TextView(this), tvTemp2 = new TextView(this);
-            tvTemp1.setText(R.string.there_is_empty_placeholder);
-            tvTemp2.setText(R.string.OK_button);
-
-            builder.setMessage(tvTemp1.getText().toString())
-                    .setPositiveButton(tvTemp2.getText().toString(), (d, w) -> { ; });
+            builder.setMessage(R.string.there_is_empty_placeholder)
+                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }
         else {
-            SendSignupTwoService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupTwoService.class);
-            Call<List<SignupTwoData>> call = service.sendSingupTwoData(
+            InsertSignupAllService service = RetrofitClientInstance.getRetrofitInstance().create(InsertSignupAllService.class);
+            Call<List<DataAllSignup>> call = service.insertAllSignupData(
+                    edittext_user_stuid.getText().toString(),
+                    getIntent().getStringExtra(StaticVarMethods.USER_ID),
+                    getIntent().getStringExtra(StaticVarMethods.USER_PWD),
                     edittext_user_name.getText().toString(),
+                    ((RadioButton) radioGroup_gender.getChildAt(radioGroup_gender.indexOfChild(
+                            radioGroup_gender.findViewById(radioGroup_gender.getCheckedRadioButtonId())))).getText().toString(),
                     edittext_user_phone.getText().toString(),
                     edittext_user_email.getText().toString(),
-                    edittext_user_stuid.getText().toString(),
                     edittext_user_major.getText().toString()
             );
 
-            call.enqueue(new Callback<List<SignupTwoData>>() {
+            call.enqueue(new Callback<List<DataAllSignup>>() {
                 @Override
-                public void onResponse(Call<List<SignupTwoData>> call, Response<List<SignupTwoData>> response) {
+                public void onResponse(Call<List<DataAllSignup>> call, Response<List<DataAllSignup>> response) {
                     Log.d(TAG, "onResponse: ");
                     int code = response.code();
-
-                    if (code != 200)
-                        this.onFailure(call, new Throwable());
+                    Log.d(TAG, "onResponse: code = " + code);
                 }
 
                 @Override
-                public void onFailure(Call<List<SignupTwoData>> call, Throwable t) {
-                    Log.d(TAG, "onFailure: RETRYING");
-                    call.clone().enqueue(this);
+                public void onFailure(Call<List<DataAllSignup>> call, Throwable t) {
+                    Log.d(TAG, "onFailure: ");
                 }
             });
 
             Intent intent = new Intent(this, SignupThreeActivity.class);
             startActivity(intent);
+
         }
+
     }
 
     private boolean ifNoneEmptyString() {

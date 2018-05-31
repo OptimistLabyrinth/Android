@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.yks93.mysharedpreferences01">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_label"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FirstPageActivity"
+            android:label="Welcom to Android World!">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login Page" >
+        </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:label="Now Register" >
+        </activity>
+        <activity
+            android:name=".AfterLoginActivity"
+            android:label="Good Job" >
+        </activity>
+        <activity
+            android:name=".MyPageActivity"
+            android:label="My Page" >
+        </activity>
+    </application>
+
+</manifest>

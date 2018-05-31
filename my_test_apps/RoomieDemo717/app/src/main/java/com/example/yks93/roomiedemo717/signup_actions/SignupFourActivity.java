@@ -1,17 +1,25 @@
 package com.example.yks93.roomiedemo717.signup_actions;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 
-import com.example.yks93.roomiedemo717.R;
+import com.example.yks93.roomiedemo717.AfterSignupFinishActivity;
+import com.example.yks93.roomiedemo717.loading_waiting.LoadingWaitingFragment;
 import com.example.yks93.roomiedemo717.retrofit_package.RetrofitClientInstance;
+import com.example.yks93.roomiedemo717.static_storage.StaticVarMethods;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,30 +38,6 @@ public class SignupFourActivity extends AppCompatActivity{
     NumberPicker numberpicker_age;
     @BindView(R.id.numberpicker_grade_opposite)
     NumberPicker numberpicker_grade;
-    @BindView(R.id.checkbox_01_opposite)
-    CheckBox checkbox_01;
-    @BindView(R.id.checkbox_02_opposite)
-    CheckBox checkbox_02;
-    @BindView(R.id.checkbox_03_opposite)
-    CheckBox checkbox_03;
-    @BindView(R.id.checkbox_04_opposite)
-    CheckBox checkbox_04;
-    @BindView(R.id.checkbox_05_opposite)
-    CheckBox checkbox_05;
-    @BindView(R.id.checkbox_06_opposite)
-    CheckBox checkbox_06;
-    @BindView(R.id.checkbox_07_opposite)
-    CheckBox checkbox_07;
-    @BindView(R.id.checkbox_08_opposite)
-    CheckBox checkbox_08;
-    @BindView(R.id.checkbox_09_opposite)
-    CheckBox checkbox_09;
-    @BindView(R.id.checkbox_10_opposite)
-    CheckBox checkbox_10;
-    @BindView(R.id.checkbox_11_opposite)
-    CheckBox checkbox_11;
-    @BindView(R.id.checkbox_12_opposite)
-    CheckBox checkbox_12;
     @BindView(R.id.radiogroup_cleanness_opposite)
     RadioGroup radiogroup_cleanness;
     @BindView(R.id.radiogroup_nightfood_opposite)
@@ -70,8 +54,14 @@ public class SignupFourActivity extends AppCompatActivity{
     RadioGroup radiogroup_friend_coming_opposite;
     @BindView(R.id.btn_signup_finish)
     Button button;
+    @BindView(R.id.frameLayout_of_signup_four)
+    FrameLayout frameLayout;
+    @BindView(R.id.scrollView_child)
+    ScrollView scrollView_signup_four_everything;
 
-    ArrayList<String> checkedPersonalities = new ArrayList<>();
+    FragmentManager fragmentManager;
+
+    ArrayList<String> tempStorage;
 
     private final String TAG = "SignupFourActivity";
 
@@ -87,12 +77,20 @@ public class SignupFourActivity extends AppCompatActivity{
     protected void onStart() {
         Log.d(TAG, "onStart: ");
         super.onStart();
+
+        numberpicker_age.setMinValue(19);
+        numberpicker_age.setMaxValue(35);
+
+        numberpicker_grade.setMinValue(1);
+        numberpicker_grade.setMaxValue(4);
     }
 
     @Override
     protected void onResume() {
         Log.d(TAG, "onResume: ");
         super.onResume();
+
+        fragmentManager = getSupportFragmentManager();
     }
 
     @Override
@@ -122,82 +120,184 @@ public class SignupFourActivity extends AppCompatActivity{
     void beginFinishProcess() {
         Log.d(TAG, "onStartRetrofitProcess: ");
 
-        int code = 0;
+        Fragment fragment = new LoadingWaitingFragment();
+        FragmentTransaction transaction = fragmentManager.beginTransaction()
+                .replace(R.id.frameLayout_of_signup_four, fragment)
+                .addToBackStack("loading_waiting_fragment");
+        transaction.commit();
+        scrollView_signup_four_everything.setVisibility(View.GONE);
 
-        SendSignupFourService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupFourService.class);
-        Call<List<SignupFourData>> call = service.sendSignupFourData(
+        InsertMatchAllService service = RetrofitClientInstance.getRetrofitInstance().create(InsertMatchAllService.class);
+        Call<List<DataAllMatch>> call = service.insertAllMatchData(
+                getIntent().getStringExtra(StaticVarMethods.mGENDER),
+                getIntent().getStringExtra(StaticVarMethods.mAGE),
+                getIntent().getStringExtra(StaticVarMethods.mGRADE),
+                getIntent().getStringExtra(StaticVarMethods.mCLEAN),
+                getIntent().getStringExtra(StaticVarMethods.mYASIK),
+                tempStorage,
+                getIntent().getStringExtra(StaticVarMethods.mACTIVITY),
+                getIntent().getStringExtra(StaticVarMethods.mFREQ_DRINK),
+                getIntent().getStringExtra(StaticVarMethods.mDRINK),
+                getIntent().getStringExtra(StaticVarMethods.mSMOKE),
+
                 String.valueOf(numberpicker_age.getValue()),
                 String.valueOf(numberpicker_grade.getValue()),
-                checkedPersonalities,
                 ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
                         radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString(),
                 ((RadioButton) radiogroup_nightfood.getChildAt(radiogroup_nightfood.indexOfChild(
                         radiogroup_nightfood.findViewById(radiogroup_nightfood.getCheckedRadioButtonId())))).getText().toString(),
                 ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
                         radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString(),
-                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
-                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
                 ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
                         radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString(),
+                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
+                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
                 ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
                         radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString(),
                 ((RadioButton) radiogroup_friend_coming_opposite.getChildAt(radiogroup_friend_coming_opposite.indexOfChild(
                         radiogroup_friend_coming_opposite.findViewById(radiogroup_friend_coming_opposite.getCheckedRadioButtonId())))).getText().toString()
         );
 
-        call.enqueue(new Callback<List<SignupFourData>>() {
+        call.enqueue(new Callback<List<DataAllMatch>>() {
             @Override
-            public void onResponse(Call<List<SignupFourData>> call, Response<List<SignupFourData>> response) {
+            public void onResponse(Call<List<DataAllMatch>> call, Response<List<DataAllMatch>> response) {
                 Log.d(TAG, "onResponse: ");
                 int code = response.code();
-
-                if (code != 200)
-                    this.onFailure(call, new Throwable());
+                Log.d(TAG, "onResponse: code = " + code);
             }
 
             @Override
-            public void onFailure(Call<List<SignupFourData>> call, Throwable t) {
-                Log.d(TAG, "onFailure: RETRYING");
-                call.clone().enqueue(this);
+            public void onFailure(Call<List<DataAllMatch>> call, Throwable t) {
+                Log.d(TAG, "onFailure: ");
             }
         });
 
-        while (code != 200) {
-            try {
-                Response<List<SignupFourData>> response = call.clone().execute();
-                code = response.code();
-            } catch (IOException e) {
-                Log.d(TAG, "ERROR!! beginFinishProcess: ");
-                e.printStackTrace();
-            }
+        scrollView_signup_four_everything.setVisibility(View.VISIBLE);
+        fragmentManager.popBackStack();
 
-            
-        }
+        Intent intent = new Intent(this, AfterSignupFinishActivity.class);
+        startActivity(intent);
 
     }
 
-    private void getCheckBoxSelectedOpposite() {
-        ArrayList<CheckBox> checkBoxeList = new ArrayList<>();
-        checkBoxeList.add(checkbox_01);
-        checkBoxeList.add(checkbox_02);
-        checkBoxeList.add(checkbox_03);
-        checkBoxeList.add(checkbox_04);
-        checkBoxeList.add(checkbox_05);
-        checkBoxeList.add(checkbox_06);
-        checkBoxeList.add(checkbox_07);
-        checkBoxeList.add(checkbox_08);
-        checkBoxeList.add(checkbox_09);
-        checkBoxeList.add(checkbox_10);
-        checkBoxeList.add(checkbox_11);
-        checkBoxeList.add(checkbox_12);
-
-        for (CheckBox cb : checkBoxeList) {
-            if (cb.isChecked())
-                checkedPersonalities.add(cb.getText().toString());
-        }
-
+    private void setIsRegisterFinished(boolean isRegisterFinished) {
+        this.isRegisterFinished = isRegisterFinished;
     }
-
-
 
 }
+
+//            while (code != 200) {
+//                try {
+//                    Response<List<SignupFourData>> response = call.clone().execute();
+//                    code = response.code();
+//                } catch (IOException e) {
+//                    Log.d(TAG, "ERROR!! beginFinishProcess: ");
+//                    e.printStackTrace();
+//                }
+//            }
+
+//                            String.valueOf(numberpicker_age.getValue()),
+//                            String.valueOf(numberpicker_grade.getValue()),
+//                            ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
+//                            radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_nightfood.getChildAt(radiogroup_nightfood.indexOfChild(
+//                            radiogroup_nightfood.findViewById(radiogroup_nightfood.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
+//                            radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
+//                            radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
+//                            radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
+//                            radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString(),
+//                            ((RadioButton) radiogroup_friend_coming_opposite.getChildAt(radiogroup_friend_coming_opposite.indexOfChild(
+//                            radiogroup_friend_coming_opposite.findViewById(radiogroup_friend_coming_opposite.getCheckedRadioButtonId())))).getText().toString()
+
+
+
+//        registerDataThread = new RegisterSingupData("thread_to_register_data");
+//        registerDataThread.start();
+//        Handler registerDataHandler = new Handler(registerDataThread.getLooper()){
+//            @Override
+//            public void handleMessage(Message msg) {
+//                Log.d(TAG, "handleMessage: ");
+//                super.handleMessage(msg);
+//            }
+//        };
+//        registerDataHandler.post(registerDataThread);
+
+
+/*
+ *  Task : Runnable
+ *
+ *  Register all the Information of which is inserted by User
+ *  to the Server by REST API 'POST' request.
+ *  After getting 200 (OK) response from the server
+ *  this application keeps going.
+ */
+//public class RegisterSingupData extends HandlerThread {
+//
+//    private final String TAG = "RegisterSingupData";
+//
+//    public RegisterSingupData(String name) {
+//        super(name);
+//    }
+//
+//    public RegisterSingupData(String name, int priority) {
+//        super(name, priority);
+//    }
+//
+//    @Override
+//    public void run() {
+//        Log.d(TAG, "run: ");
+//
+//        int list_length = getIntent().getIntExtra(StaticVarMethods.mCharacterListLength, -1);
+//        if (list_length != -1) {
+//            for (int i=0; i < list_length; ++i) {
+//                tempStorage.add(getIntent().getStringExtra(String.valueOf(i)));
+//            }
+//
+//        }
+//        InsertMatchAllService service = RetrofitClientInstance.getRetrofitInstance().create(InsertMatchAllService.class);
+//        Call<List<DataAllMatch>> call = service.insertAllMatchData(
+//                getIntent().getStringExtra(StaticVarMethods.mGENDER),
+//                getIntent().getStringExtra(StaticVarMethods.mAGE),
+//                getIntent().getStringExtra(StaticVarMethods.mGRADE),
+//                getIntent().getStringExtra(StaticVarMethods.mCLEAN),
+//                getIntent().getStringExtra(StaticVarMethods.mYASIK),
+//                tempStorage,
+//                getIntent().getStringExtra(StaticVarMethods.mACTIVITY),
+//                getIntent().getStringExtra(StaticVarMethods.mFREQ_DRINK),
+//                getIntent().getStringExtra(StaticVarMethods.mDRINK),
+//                getIntent().getStringExtra(StaticVarMethods.mSMOKE),
+//
+//                String.valueOf(numberpicker_age.getValue()),
+//                String.valueOf(numberpicker_grade.getValue()),
+//                ((RadioButton) radiogroup_cleanness.getChildAt(radiogroup_cleanness.indexOfChild(
+//                        radiogroup_cleanness.findViewById(radiogroup_cleanness.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_nightfood.getChildAt(radiogroup_nightfood.indexOfChild(
+//                        radiogroup_nightfood.findViewById(radiogroup_nightfood.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_activity.getChildAt(radiogroup_activity.indexOfChild(
+//                        radiogroup_activity.findViewById(radiogroup_activity.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_alcohol_frequency.getChildAt(radiogroup_alcohol_frequency.indexOfChild(
+//                        radiogroup_alcohol_frequency.findViewById(radiogroup_alcohol_frequency.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_max_alcohol.getChildAt(radiogroup_max_alcohol.indexOfChild(
+//                        radiogroup_max_alcohol.findViewById(radiogroup_max_alcohol.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_smoking.getChildAt(radiogroup_smoking.indexOfChild(
+//                        radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString(),
+//                ((RadioButton) radiogroup_friend_coming_opposite.getChildAt(radiogroup_friend_coming_opposite.indexOfChild(
+//                        radiogroup_friend_coming_opposite.findViewById(radiogroup_friend_coming_opposite.getCheckedRadioButtonId())))).getText().toString()
+//        );
+//
+//        setIsRegisterFinished(true);
+//
+//    }
+//
+//
+//
+//    @Override
+//    public boolean quitSafely() {
+//        Log.d(TAG, "quitSafely: ");
+//        return super.quitSafely();
+//    }
+//}

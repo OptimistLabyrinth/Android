@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_root_roommate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96sp"
+            android:layout_height="96sp"
+            android:layout_margin="@dimen/margin_standard"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/house"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#40000000"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_chile_roommate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_standard"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/textview_name_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2sp"
+                android:layout_marginStart="2sp"
+                android:layout_marginTop="2sp"
+                android:layout_marginEnd="70sp"
+                android:layout_marginRight="70sp"
+                android:text="name" />
+
+            <TextView
+                android:id="@+id/textview_stud_id_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2sp"
+                android:layout_marginStart="2sp"
+                android:layout_marginTop="2sp"
+                android:layout_marginEnd="70sp"
+                android:layout_marginRight="70sp"
+                android:text="  (stud_id)" />
+
+            <TextView
+                android:id="@+id/textview_gender_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:text="gender" />
+
+            <TextView
+                android:id="@+id/textview_phone_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:text="phone" />
+
+            <TextView
+                android:id="@+id/textview_email_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:text="email" />
+
+            <TextView
+                android:id="@+id/textview_major_roommate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:text="major" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

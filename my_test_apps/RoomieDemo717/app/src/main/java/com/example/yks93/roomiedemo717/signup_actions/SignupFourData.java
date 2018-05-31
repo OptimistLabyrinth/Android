@@ -4,28 +4,29 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/*
+ *  Depreciated
+ */
 public class SignupFourData {
 
-    @SerializedName("age")
+    @SerializedName("OP_AGE")
     private String age;
-    @SerializedName("grade")
+    @SerializedName("OP_GRADE")
     private String grade;
-    @SerializedName("personality")
-    private List<String> personality;
-    @SerializedName("cleanness")
-    private String cleanness;
-    @SerializedName("nightfood")
-    private String nightfood;
-    @SerializedName("outsideActivity")
-    private String outsideActivity;
-    @SerializedName("maxAlcohol")
-    private String maxAlcohol;
-    @SerializedName("alcoholFreq")
-    private String alcoholFrequency;
-    @SerializedName("smoking")
-    private String smoking;
-    @SerializedName("friendComing")
-    private String friendComing;
+    @SerializedName("OP_CLEAN")
+    private String clean;
+    @SerializedName("OP_YASIK")
+    private String yasik;
+    @SerializedName("OP_OUTSIDE_ACTIVITY")
+    private String outside_activity;
+    @SerializedName("OP_DRINK")
+    private String drink;
+    @SerializedName("OP_FREQ_DRINK")
+    private String freq_drink;
+    @SerializedName("OP_SMOKE")
+    private String smoke;
+    @SerializedName("AGREE_WITH")
+    private String agree_with;
 
     public String getAge() {
         return age;
@@ -43,68 +44,59 @@ public class SignupFourData {
         this.grade = grade;
     }
 
-    public List<String> getPersonality() {
-        return personality;
+    public String getClean() {
+        return clean;
     }
 
-    public void setPersonality(List<String> personality) {
-        this.personality = personality;
+    public void setClean(String clean) {
+        this.clean = clean;
     }
 
-    public String getCleanness() {
-        return cleanness;
+    public String getYasik() {
+        return yasik;
     }
 
-    public void setCleanness(String cleanness) {
-        this.cleanness = cleanness;
+    public void setYasik(String yasik) {
+        this.yasik = yasik;
     }
 
-    public String getNightfood() {
-        return nightfood;
+    public String getOutside_activity() {
+        return outside_activity;
     }
 
-    public void setNightfood(String nightfood) {
-        this.nightfood = nightfood;
+    public void setOutside_activity(String outside_activity) {
+        this.outside_activity = outside_activity;
     }
 
-    public String getOutsideActivity() {
-        return outsideActivity;
+    public String getDrink() {
+        return drink;
     }
 
-    public void setOutsideActivity(String outsideActivity) {
-        this.outsideActivity = outsideActivity;
+    public void setDrink(String drink) {
+        this.drink = drink;
     }
 
-    public String getMaxAlcohol() {
-        return maxAlcohol;
+    public String getFreq_drink() {
+        return freq_drink;
     }
 
-    public void setMaxAlcohol(String maxAlcohol) {
-        this.maxAlcohol = maxAlcohol;
+    public void setFreq_drink(String freq_drink) {
+        this.freq_drink = freq_drink;
     }
 
-    public String getAlcoholFrequency() {
-        return alcoholFrequency;
+    public String getSmoke() {
+        return smoke;
     }
 
-    public void setAlcoholFrequency(String alcoholFrequency) {
-        this.alcoholFrequency = alcoholFrequency;
+    public void setSmoke(String smoke) {
+        this.smoke = smoke;
     }
 
-    public String getSmoking() {
-        return smoking;
+    public String getAgree_with() {
+        return agree_with;
     }
 
-    public void setSmoking(String smoking) {
-        this.smoking = smoking;
+    public void setAgree_with(String agree_with) {
+        this.agree_with = agree_with;
     }
-
-    public String getFriendComing() {
-        return friendComing;
-    }
-
-    public void setFriendComing(String friendComing) {
-        this.friendComing = friendComing;
-    }
-
 }

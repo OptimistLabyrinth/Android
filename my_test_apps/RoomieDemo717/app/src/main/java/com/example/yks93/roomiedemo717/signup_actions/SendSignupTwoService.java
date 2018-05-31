@@ -6,17 +6,20 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
+/*
+ *  Depreciated
+ */
 public interface SendSignupTwoService {
 
-    @FormUrlEncoded
-    @POST("/insertSingupTwo")
+    @POST("/insertSingupAll")
     Call<List<SignupTwoData>> sendSingupTwoData(
-            @Field("Name") String name,
-            @Field("Phone") String phone,
-            @Field("Email") String email,
-            @Field("Stud_ID") String stud_id,
-            @Field("Major") String major
+            @Query("NAME") String name,
+            @Query("PHONE") String phone,
+            @Query("EMAIL") String email,
+            @Query("STUD_ID") String stud_id,
+            @Query("MAJOR") String major
     );
 
 }

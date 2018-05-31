@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yks93.roomiedemo717">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".signup_actions.SignupOneActivity">
+            android:name=".signup_actions.SignupThreeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,7 +25,7 @@
             android:label="@string/this_is_our_service" >
         </activity>
         <activity
-            android:name=".SearchRoommateActivity"
+            android:name=".searchroommate.SearchRoommateActivity"
             android:label="@string/find_your_roommate" >
         </activity>
         <activity
@@ -44,7 +45,7 @@
             android:label="@string/mypage_label" >
         </activity>
         <activity
-            android:name=".LoginMenuActivity"
+            android:name=".trylogin.LoginPageActivity"
             android:label="@string/login_menu_label" >
         </activity>
         <!--<activity-->
@@ -62,6 +63,10 @@
         <activity
             android:name=".signup_actions.SignupFourActivity"
             android:label="@string/signup_for_matching_insert_opposite_info" >
+        </activity>
+        <activity
+            android:name=".AfterSignupFinishActivity"
+            android:label="@string/signup_finish_label">
         </activity>
 
     </application>

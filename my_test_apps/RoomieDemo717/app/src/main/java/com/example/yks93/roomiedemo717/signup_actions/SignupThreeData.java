@@ -4,28 +4,31 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/*
+ *  Depreciated
+ */
 public class SignupThreeData {
 
-    @SerializedName("gender")
+    @SerializedName("MY_GENDER")
     private String gender;
-    @SerializedName("age")
+    @SerializedName("MY_AGE")
     private String age;
-    @SerializedName("grade")
+    @SerializedName("MY_GRADE")
     private String grade;
-    @SerializedName("personality")
-    private List<String> personality;
-    @SerializedName("cleanness")
-    private String cleannes;
-    @SerializedName("nightfood")
-    private String nightfood;
-    @SerializedName("outsideActivity")
-    private String outsideActivity;
-    @SerializedName("maxAlcohol")
-    private String maxAlcohol;
-    @SerializedName("alcoholFreq")
-    private String alcoholFrequency;
-    @SerializedName("smoking")
-    private String smoking;
+    @SerializedName("MY_CHARACTER")
+    private List<String> character;
+    @SerializedName("MY_CLEAN")
+    private String clean;
+    @SerializedName("MY_YASIK")
+    private String yasik;
+    @SerializedName("MY_OUTSIDE_ACTIVITY")
+    private String outside_activity;
+    @SerializedName("MY_DRINK")
+    private String drink;
+    @SerializedName("MY_FREQ_DRINK")
+    private String freq_drink;
+    @SerializedName("MY_SMOKE")
+    private String smoke;
 
     public String getGender() {
         return gender;
@@ -51,59 +54,62 @@ public class SignupThreeData {
         this.grade = grade;
     }
 
-    public List<String> getPersonality() {
-        return personality;
+    public List<String> getCharacter() {
+        return character;
     }
 
-    public void setPersonality(List<String> personality) {
-        this.personality = personality;
+    public void setCharacter(List<String> character) {
+        this.character = character;
     }
 
-    public String getCleannes() {
-        return cleannes;
+    public String getClean() {
+        return clean;
     }
 
-    public void setCleannes(String cleannes) {
-        this.cleannes = cleannes;
+    public void setClean(String clean) {
+        this.clean = clean;
     }
 
-    public String getNightfood() {
-        return nightfood;
+    public String getYasik() {
+        return yasik;
     }
 
-    public void setNightfood(String nightfood) {
-        this.nightfood = nightfood;
+    public void setYasik(String yasik) {
+        this.yasik = yasik;
     }
 
-    public String getOutsideActivity() {
-        return outsideActivity;
+    public String getOutside_activity() {
+        return outside_activity;
     }
 
-    public void setOutsideActivity(String outsideActivity) {
-        this.outsideActivity = outsideActivity;
+    public void setOutside_activity(String outside_activity) {
+        this.outside_activity = outside_activity;
     }
 
-    public String getMaxAlcohol() {
-        return maxAlcohol;
+    public String getDrink() {
+        return drink;
     }
 
-    public void setMaxAlcohol(String maxAlcohol) {
-        this.maxAlcohol = maxAlcohol;
+    public void setDrink(String drink) {
+        this.drink = drink;
     }
 
-    public String getAlcoholFrequency() {
-        return alcoholFrequency;
+    public String getFreq_drink() {
+        return freq_drink;
     }
 
-    public void setAlcoholFrequency(String alcoholFrequency) {
-        this.alcoholFrequency = alcoholFrequency;
+    public void setFreq_drink(String freq_drink) {
+        this.freq_drink = freq_drink;
     }
 
-    public String getSmoking() {
-        return smoking;
+    public String getSmoke() {
+        return smoke;
     }
 
-    public void setSmoking(String smoking) {
-        this.smoking = smoking;
+    public void setSmoke(String smoke) {
+        this.smoke = smoke;
     }
+
+
+
 }

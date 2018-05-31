@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.yks93.myfragment05.R;
 
@@ -39,8 +40,7 @@ public class MainFragment extends Fragment {
     @OnClick(R.id.linearLayout_fragment_main)
     void executeOnBackPressed() {
         getActivity().onBackPressed();
+//        Toast.makeText(getActivity(), "Hello", Toast.LENGTH_SHORT).show();
     }
-
-
 
 }

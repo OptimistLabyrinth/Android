@@ -10,7 +10,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.yks93.roomiedemo717.searchroommate.SearchRoommateActivity;
 import com.example.yks93.roomiedemo717.signup_actions.SignupOneActivity;
+import com.example.yks93.roomiedemo717.trylogin.LoginPageActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,7 +41,7 @@ public class AfterTheFirstClickActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.login_menu: {
-                Intent intent = new Intent(this, LoginMenuActivity.class);
+                Intent intent = new Intent(this, LoginPageActivity.class);
                 startActivity(intent);
                 return true;
             }
