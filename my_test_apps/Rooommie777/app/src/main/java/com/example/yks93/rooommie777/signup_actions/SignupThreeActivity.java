@@ -124,11 +124,13 @@ public class SignupThreeActivity extends AppCompatActivity {
     void onMovetoSignupFourButtonClicked() {
         Log.d(TAG, "onMovetoSignupFourButtonClicked: ");
 
+        getSelectedCheckbox();
+
         startIntentSignupFourActivity();
 
     }
 
-    private void getCheckboxSelected() {
+    private void getSelectedCheckbox() {
         ArrayList<CheckBox> checkBoxesAll = new ArrayList<>();
         checkBoxesAll.add(checkbox_01_myself);
         checkBoxesAll.add(checkbox_02_myself);
@@ -153,6 +155,7 @@ public class SignupThreeActivity extends AppCompatActivity {
         Log.d(TAG, "startIntentSignupFourActivity: ");
 
         Intent intent = new Intent(this, SignupFourActivity.class);
+        intent.putExtra(StaticVarMethods.STUD_ID, getIntent().getStringExtra(StaticVarMethods.STUD_ID));
 
         inputPassingValues(intent);
 
@@ -196,6 +199,8 @@ public class SignupThreeActivity extends AppCompatActivity {
                         radiogroup_smoking.findViewById(radiogroup_smoking.getCheckedRadioButtonId())))).getText().toString());
     }
 
+}
+
 //    private int myGenderValueConversion() {
 //
 //    }
@@ -230,8 +235,6 @@ public class SignupThreeActivity extends AppCompatActivity {
 //    private int mySmokeConversion() {
 //
 //    }
-
-}
 
 //        SendSignupThreeService service = RetrofitClientInstance.getRetrofitInstance().create(SendSignupThreeService.class);
 //        Call<List<SignupThreeData>> call = service.sendSignupThreeData(

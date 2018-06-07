@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 
 import com.example.yks93.rooommie777.R;
 import com.example.yks93.rooommie777.retrofit_package.RetrofitClientInstance;
+import com.example.yks93.rooommie777.static_storage.StaticVarMethods;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class SignupOneActivity extends AppCompatActivity {
     @BindView(R.id.frameLayout_one)
     FrameLayout fragment_location;
 
-    ArrayList<String> UserIDList = new ArrayList();
+    ArrayList<String> UserIDList = new ArrayList<>();
     boolean isIDusable = false;
     boolean isPWDconfirmed = false;
 
@@ -115,14 +116,16 @@ public class SignupOneActivity extends AppCompatActivity {
             public void onResponse(Call<List<IDdata>> call, Response<List<IDdata>> response) {
                 Log.d(TAG, "onResponse: ");
                 ArrayList<IDdata> tmp =(ArrayList<IDdata>) response.body();
-                for (IDdata iddata : tmp)
-                    UserIDList.add(iddata.getId());
+                if (response.code() == 200) {
+                    for (IDdata iddata : tmp)
+                        UserIDList.add(iddata.getId());
+                }
             }
 
             @Override
             public void onFailure(Call<List<IDdata>> call, Throwable t) {
                 Log.d(TAG, "onFailure: + " + t.toString());
-                call.clone().enqueue(this);
+//                call.clone().enqueue(this);
             }
         });
     }
@@ -167,38 +170,34 @@ public class SignupOneActivity extends AppCompatActivity {
             }
         }
         else {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
+            new AlertDialog.Builder(this)
                     .setMessage(R.string.cannot_move_to_signup_two_message)
-                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                    .create().show();
         }
 
 
     }
 
     private void openIDReplicatedDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this)
                 .setMessage(R.string.id_replicated_message)
-                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                .create().show();
     }
 
     private void openIDUsableDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this)
                 .setMessage(R.string.id_usable_message)
-                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                .create().show();
     }
 
     private void requestIDReplicateCheckDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this)
                 .setMessage(R.string.id_haveto_duplicate_check_message)
-                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                .create().show();
     }
 
     private boolean checkPWDConfirmed() {
@@ -210,11 +209,10 @@ public class SignupOneActivity extends AppCompatActivity {
     }
 
     private void openPWDInappropriate() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this)
                 .setMessage(R.string.pwd_inappropriate_message)
-                .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
+                .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                .create().show();
     }
 
 }

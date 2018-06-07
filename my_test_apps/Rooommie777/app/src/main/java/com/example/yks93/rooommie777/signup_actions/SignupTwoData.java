@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /*
  *  Depreciated
  */
+@Deprecated
 public class SignupTwoData {
 
     @SerializedName("NAME")

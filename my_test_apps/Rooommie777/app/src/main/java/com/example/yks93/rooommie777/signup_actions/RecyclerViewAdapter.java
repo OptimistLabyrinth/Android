@@ -12,6 +12,8 @@ import butterknife.ButterKnife;
 /*
  *  Depreciated
  */
+
+@Deprecated
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private final String TAG = "RecyclerViewAdapter";

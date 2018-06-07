@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_mypage"
+        android:title="@string/mypage"
+        app:showAsAction="never"  />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:title="@string/logout"
+        app:showAsAction="never"  />
+
+    <item
+        android:id="@+id/menu_home_page_in_after_login"
+        android:title="@string/go_to_home_page"
+        app:showAsAction="never"  />
+
+</menu>

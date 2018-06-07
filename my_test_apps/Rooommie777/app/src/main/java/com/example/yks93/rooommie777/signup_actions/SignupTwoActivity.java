@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yks93.rooommie777.R;
 import com.example.yks93.rooommie777.retrofit_package.RetrofitClientInstance;
@@ -24,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupTwoActivity extends AppCompatActivity {
+public class SignupTwoActivity extends AppCompatActivity implements TextWatcher {
 
     @BindView(R.id.radiogroup_gender_signup_two)
     RadioGroup radioGroup_gender;
@@ -38,6 +42,8 @@ public class SignupTwoActivity extends AppCompatActivity {
     EditText edittext_user_stuid;
     @BindView(R.id.edittext_user_major)
     EditText edittext_user_major;
+    @BindView(R.id.tv_temp_signup_two)
+    TextView tv_temp;
 
     private final String TAG = "SignupTwoActivity";
     
@@ -47,6 +53,8 @@ public class SignupTwoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_two);
         ButterKnife.bind(this);
+
+        tv_temp.addTextChangedListener(this);
     }
 
     @Override
@@ -84,12 +92,10 @@ public class SignupTwoActivity extends AppCompatActivity {
         Log.d(TAG, "onMoveToSignupThreeButtonClicked: ");
 
         if (!ifNoneEmptyString()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.setMessage(R.string.there_is_empty_placeholder)
-                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+            new AlertDialog.Builder(this)
+                    .setMessage(R.string.there_is_empty_placeholder)
+                    .setPositiveButton(R.string.OK_button, (d, w) -> { ; })
+                    .create().show();
         }
         else {
             InsertSignupAllService service = RetrofitClientInstance.getRetrofitInstance().create(InsertSignupAllService.class);
@@ -108,20 +114,27 @@ public class SignupTwoActivity extends AppCompatActivity {
             call.enqueue(new Callback<List<DataAllSignup>>() {
                 @Override
                 public void onResponse(Call<List<DataAllSignup>> call, Response<List<DataAllSignup>> response) {
-                    Log.d(TAG, "onResponse: ");
                     int code = response.code();
                     Log.d(TAG, "onResponse: code = " + code);
+
+                    if (code == 200) {
+//                        tv_temp.setText(code);
+
+                        Intent intent = new Intent(SignupTwoActivity.this, SignupThreeActivity.class);
+                        intent.putExtra(StaticVarMethods.STUD_ID, edittext_user_stuid.getText().toString());
+                        startActivity(intent);
+                    }
                 }
 
                 @Override
                 public void onFailure(Call<List<DataAllSignup>> call, Throwable t) {
-                    Log.d(TAG, "onFailure: ");
+                    Log.d(TAG, "onFailure: " + t.toString());
+//                    Toast.makeText(SignupTwoActivity.this, R.string.login_failed_message, Toast.LENGTH_LONG).show();
                 }
             });
 
-            Intent intent = new Intent(this, SignupThreeActivity.class);
-            startActivity(intent);
-
+//            Intent intent = new Intent(this, SignupThreeActivity.class);
+//            startActivity(intent);
         }
 
     }
@@ -140,5 +153,20 @@ public class SignupTwoActivity extends AppCompatActivity {
         }
         return true;
     }
-    
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        Intent intent = new Intent(this, SignupThreeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
 }

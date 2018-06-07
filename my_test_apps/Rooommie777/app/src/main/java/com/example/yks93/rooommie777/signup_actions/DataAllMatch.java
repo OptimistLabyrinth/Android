@@ -11,6 +11,14 @@ public class DataAllMatch {
  *
  */
     @Expose
+    @SerializedName("STUD_ID")
+    private String stud_id;
+
+/*
+ *
+ */
+
+    @Expose
     @SerializedName("MY_GENDER")
     private String myGender;
     @Expose
@@ -70,6 +78,19 @@ public class DataAllMatch {
     @Expose
     @SerializedName("AGREE_WITH")
     private String agreeWith;
+
+/*
+ *
+ */
+
+    public String getStud_id() {
+        return stud_id;
+    }
+
+    public void setStud_id(String stud_id) {
+        this.stud_id = stud_id;
+    }
+
 
 /*
  *

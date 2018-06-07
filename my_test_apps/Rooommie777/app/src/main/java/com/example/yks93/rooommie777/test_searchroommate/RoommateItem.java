@@ -1,10 +1,11 @@
-package com.example.yks93.rooommie777.searchroommate;
+package com.example.yks93.rooommie777.test_searchroommate;
 
 import android.support.v7.widget.RecyclerView;
 
 /*
  *  Depreciated
  */
+//@Deprecated
 public class RoommateItem extends RecyclerView.AdapterDataObserver {
 
     private String stud_id;

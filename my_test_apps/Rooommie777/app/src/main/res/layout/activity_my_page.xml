@@ -6,7 +6,61 @@
     android:id="@+id/activity_my_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPageActivity"
-    >
+    tools:context=".using_mypage_menu.MyPageActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_standard"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_image_mypage"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    android:src="@drawable/tree" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_standard"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/user_name_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/name_example" />
+
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rowCount="4"
+                android:columnCount="2"
+                android:padding="2sp" >
+
+
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

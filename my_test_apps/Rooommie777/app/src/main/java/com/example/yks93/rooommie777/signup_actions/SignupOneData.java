@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /*
  *  Depreciated
  */
+@Deprecated
 public class SignupOneData {
 
     @Expose

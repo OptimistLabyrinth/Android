@@ -20,6 +20,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/*
+ *  Depreciated
+ */
+@Deprecated
 public class LoadingWaitingFragment extends Fragment {
 
     @BindView(R.id.layout_loading_waiting)

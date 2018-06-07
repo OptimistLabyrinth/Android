@@ -4,14 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 
 import com.example.yks93.myrecyclerviewpractice02.adapter.StringAdapter;
 import com.example.yks93.myrecyclerviewpractice02.pojo.StringData;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
 
 public class MainActivity extends AppCompatActivity {
 

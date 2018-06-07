@@ -1,4 +1,4 @@
-package com.example.yks93.rooommie777.searchroommate;
+package com.example.yks93.rooommie777.test_searchroommate;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +12,10 @@ import com.example.yks93.rooommie777.R;
 
 import java.util.List;
 
+/*
+ * Depreciated
+ */
+//@Deprecated
 public class SearchRoommateAdapter extends RecyclerView.Adapter<SearchRoommateAdapter.RoommateViewHolder> {
 
     List<RoommateItem> dataList;

@@ -45,4 +45,7 @@ public class StaticVarMethods {
 
     public static final String Y = "y_KEY";
 
+    public static final int MORE = 1;
+    public static final int LESS = 2;
+
 }

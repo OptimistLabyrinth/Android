@@ -2,7 +2,7 @@ package com.example.yks93.myrecyclerviewpractice02.pojo;
 
 import android.support.v7.widget.RecyclerView;
 
-public class StringData extends RecyclerView.AdapterDataObserver {
+public class StringData {
 
     private String title, genre, year;
 
@@ -40,9 +40,4 @@ public class StringData extends RecyclerView.AdapterDataObserver {
         this.year = year;
     }
 
-    @Override
-    public void onChanged() {
-        super.onChanged();
-
-    }
 }

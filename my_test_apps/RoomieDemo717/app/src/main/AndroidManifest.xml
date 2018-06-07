@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".signup_actions.SignupThreeActivity">
+            android:name=".WelcomePageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -48,10 +48,10 @@
             android:name=".trylogin.LoginPageActivity"
             android:label="@string/login_menu_label" >
         </activity>
-        <!--<activity-->
-            <!--android:name=".signup_actions.SignupOneActivity"-->
-            <!--android:label="@string/signup_page_label" >-->
-        <!--</activity>-->
+        <activity
+            android:name=".signup_actions.SignupOneActivity"
+            android:label="@string/signup_page_label" >
+        </activity>
         <activity
             android:name=".signup_actions.SignupTwoActivity"
             android:label="@string/signup_page_label" >
@@ -59,10 +59,6 @@
         <activity
             android:name=".signup_actions.SignupThreeActivity"
             android:label="@string/signup_for_matching_insert_my_info">
-        </activity>
-        <activity
-            android:name=".signup_actions.SignupFourActivity"
-            android:label="@string/signup_for_matching_insert_opposite_info" >
         </activity>
         <activity
             android:name=".AfterSignupFinishActivity"

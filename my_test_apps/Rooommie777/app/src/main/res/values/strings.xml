@@ -142,5 +142,32 @@
     <string name="what_is_your_password">ㄱㅅ루ㅏ댜조펣</string>
     <string name="email_hint">example1234@email.com</string>
 
+    <!-- -->
+    <string name="login_first_message">로그인을 먼저 해야합니다.</string>
+    <string name="go_to_login_page">로그인으로</string>
+    <string name="default_message_forgot_id">아이디 찾기 화면 레이아웃</string>
+    <string name="default_message_forgot_pwd">비밀번호 찾기 화면 레이아웃</string>
+    <string name="loading_waiting_signup_finish">회원가입 처리중...</string>
+    <string name="logout">로그아웃</string>
+    <string name="more">더보기</string>
+    <string name="less">접기</string>
+    <string name="grade">학년</string>
+    <string name="age">나이</string>
+    <string name="activity">교외활동</string>
+    <string name="drink">주량</string>
+    <string name="clean">청소</string>
+    <string name="yasik">야식</string>
+    <string name="freqDrink">음주빈도</string>
+    <string name="go_to_home_page">홈으로 가기</string>
+    <string name="click_me">클릭!</string>
+
+    <string name="name_example">민경욱 유기성 이재서</string>
+    <string name="change_pwd_title">비밀번호 변경</string>
+    <string name="go_to_search_roommate">룸메 찾아보기</string>
+    <string name="list_record_of_myself">나의 기록</string>
+    <string name="todays_fortune_cookie_label">오늘의 포춘쿠키</string>
+    <string name="not_ready_yet_service_message">아직 준비중입니다.</string>
+    <string name="go_to_sea_useful_tips">꿀팁 보러가기</string>
+
 
 </resources>

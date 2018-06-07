@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20sp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="96sp"
+                        android:layout_height="96sp"
+                        android:layout_margin="@dimen/margin_standard"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/house"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#40000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_standard"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginStart="2sp"
+                            android:layout_marginTop="2sp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="유기성" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="나이: 26" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="컴퓨터공학과" />
+
+                        <TextView
+                            android:id="@+id/one_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="01012345678" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="학년: 4" />
+
+                        <TextView
+                            android:id="@+id/one_two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="청소: 일주일에 1번 한다." />
+
+                        <TextView
+                            android:id="@+id/one_three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="야식: 가끔 먹는다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="외향적인 성향" />
+
+                        <TextView
+                            android:id="@+id/one_four"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="외부활동: 1개" />
+
+                        <TextView
+                            android:id="@+id/one_five"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="음주빈도: 일주일에 1번" />
+
+                        <TextView
+                            android:id="@+id/one_six"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="주량: 알쓰" />
+
+                        <TextView
+                            android:id="@+id/one_seven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="흡연자" />
+
+                        <Button
+                            android:id="@+id/btn_one"
+                            android:layout_width="60sp"
+                            android:layout_height="35sp"
+                            android:layout_gravity="right"
+                            android:padding="0sp"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:layout_marginRight="20sp"
+                            android:background="#10000000"
+                            android:text="@string/more" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20sp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="96sp"
+                        android:layout_height="96sp"
+                        android:layout_margin="@dimen/margin_standard"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/house"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#40000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_standard"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginStart="2sp"
+                            android:layout_marginTop="2sp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="민경욱" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="나이: 23" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="산업경영학공학과" />
+
+                        <TextView
+                            android:id="@+id/two_one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="01022327298" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="학년: 4" />
+
+                        <TextView
+                            android:id="@+id/two_two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="청소: 3일에 한번 한다." />
+
+                        <TextView
+                            android:id="@+id/two_three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="야식: 가끔 먹는다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="외향적인 성향" />
+
+                        <TextView
+                            android:id="@+id/two_four"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="외부활동: 없음" />
+
+                        <TextView
+                            android:id="@+id/two_five"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="음주빈도: 한달에 2,3번" />
+
+                        <TextView
+                            android:id="@+id/two_six"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="주량: 3병" />
+
+                        <TextView
+                            android:id="@+id/two_seven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="비흡연자" />
+
+                        <Button
+                            android:layout_width="60sp"
+                            android:layout_height="35sp"
+                            android:layout_gravity="right"
+                            android:padding="0sp"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:layout_marginRight="20sp"
+                            android:background="#10000000"
+                            android:text="@string/more" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20sp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="96sp"
+                        android:layout_height="96sp"
+                        android:layout_margin="@dimen/margin_standard"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/house"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#40000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_standard"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginStart="2sp"
+                            android:layout_marginTop="2sp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="이재서" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="나이: 22" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="GBT 학부" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="01024681004" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="학년: 1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="청소: 3일에 한번 한다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="야식: 가끔 먹는다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="외향적인 성향" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="외부활동: 없음" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="음주빈도: 일주일에 2번" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="주량: 3병" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="흡연자" />
+
+                        <Button
+                            android:layout_width="60sp"
+                            android:layout_height="35sp"
+                            android:layout_gravity="right"
+                            android:padding="0sp"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:layout_marginRight="20sp"
+                            android:visibility="gone"
+                            android:background="#10000000"
+                            android:text="@string/more" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20sp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="96sp"
+                        android:layout_height="96sp"
+                        android:layout_margin="@dimen/margin_standard"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/house"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#40000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_standard"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginStart="2sp"
+                            android:layout_marginTop="2sp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="심재희" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="나이: 22" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="통계학과" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="01052530987" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="학년: 2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="청소: 3일에 한번 한다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="야식: 가끔 먹는다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="외향적인 성향" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="대외활동: 없음" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="음주빈도: 일주일에 1번" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="주량: 1병" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="비흡연자" />
+
+                        <Button
+                            android:layout_width="60sp"
+                            android:layout_height="35sp"
+                            android:layout_gravity="right"
+                            android:padding="0sp"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:layout_marginRight="20sp"
+                            android:visibility="gone"
+                            android:background="#10000000"
+                            android:text="@string/more" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20sp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10" >
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="96sp"
+                        android:layout_height="96sp"
+                        android:layout_margin="@dimen/margin_standard"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/house"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="#40000000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_standard"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="2sp"
+                            android:layout_marginStart="2sp"
+                            android:layout_marginTop="2sp"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:text="이지은" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="나이: 28" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="바이오시스템공학부" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="01075510236" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="학년: 3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="청소: 3일에 1번 한다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="야식: 가끔 먹는다." />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:visibility="gone"
+                            android:text="외향적인 성향" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="외부활동: 없음" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="음주빈도: 일주일에 2번" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="주량: 3병" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2sp"
+                            android:text="흡연자" />
+
+                        <Button
+                            android:layout_width="60sp"
+                            android:layout_height="35sp"
+                            android:layout_gravity="right"
+                            android:padding="0sp"
+                            android:layout_marginBottom="@dimen/margin_standard"
+                            android:layout_marginRight="20sp"
+                            android:visibility="gone"
+                            android:background="#10000000"
+                            android:text="@string/more" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

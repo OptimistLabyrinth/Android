@@ -23,6 +23,11 @@ android {
     dataBinding {
         enabled = true
     }
+    // Using Java 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -33,4 +38,21 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    // Using "butterknife" Library
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Using "RecyclerView"
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+
+    // Using "CircleImageView"
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    // Using "android - Retrofit2" + gson-converter Library
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // Using "OkHttp3" Library
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 }

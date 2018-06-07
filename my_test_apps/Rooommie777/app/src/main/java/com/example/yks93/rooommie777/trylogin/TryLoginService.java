@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface TryLoginService {
 
     @GET("/trylogin")
-    Call<List<SignupOneData>> tryLoginNow(
+    Call<List<LoginData>> tryLoginNow(
             @Query("ID") String id,
             @Query("PWD") String pwd
     );

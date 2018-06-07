@@ -7,6 +7,7 @@ import java.util.List;
 /*
  *  Depreciated
  */
+@Deprecated
 public class SignupThreeData {
 
     @SerializedName("MY_GENDER")

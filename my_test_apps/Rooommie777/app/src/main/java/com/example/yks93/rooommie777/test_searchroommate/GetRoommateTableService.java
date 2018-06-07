@@ -1,4 +1,4 @@
-package com.example.yks93.rooommie777.searchroommate;
+package com.example.yks93.rooommie777.test_searchroommate;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import retrofit2.http.Query;
 /*
  *  Depreciated
  */
+//@Deprecated
 public interface GetRoommateTableService {
 
     @GET("/member")

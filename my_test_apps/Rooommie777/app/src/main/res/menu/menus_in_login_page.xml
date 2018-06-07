@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_forgot_id"
+        android:title="@string/forgot_id_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_forgot_pwd"
+        android:title="@string/forgot_pwd_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_home_page_in_login_page"
+        android:title="@string/go_to_home_page"
+        app:showAsAction="never" />
+
+</menu>

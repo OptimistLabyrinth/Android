@@ -10,6 +10,8 @@ public interface InsertMatchAllService {
 
     @GET("/insertMatchAll")
     Call<List<DataAllMatch>> insertAllMatchData(
+            @Query("STUD_ID") String stud_id,
+
             @Query("MY_GENDER") String myGender,
             @Query("MY_AGE") String myAge,
             @Query("MY_GRADE") String myGrade,

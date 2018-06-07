@@ -9,6 +9,7 @@ import retrofit2.http.Query;
 /*
  *  Depreciated
  */
+@Deprecated
 public interface SendSignupTwoService {
 
     @POST("/insertSingupAll")

@@ -1,10 +1,11 @@
-package com.example.yks93.rooommie777.searchroommate;
+package com.example.yks93.rooommie777.test_searchroommate;
 
 import com.google.gson.annotations.SerializedName;
 
 /*
  *  Depreciated
  */
+//@Deprecated
 public class RoommateData {
 
     @SerializedName("STUD_ID")
